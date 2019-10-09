@@ -1,0 +1,41 @@
+{
+  "provider": {
+    "name": "testproducer"
+  },
+  "consumer": {
+    "name": "testconsumer"
+  },
+  "interactions": [
+    {
+      "description": "GET testRequest",
+      "request": {
+        "method": "GET",
+        "path": "test/path",
+        "headers": {
+          "We": "will have to see about this!"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "We": "will have to see about this as well.",
+          "Content-Type": "application/json; charset\u003dUTF-8"
+        },
+        "body": {}
+      },
+      "providerStates": [
+        {
+          "name": "SUCCESS"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pact-specification": {
+      "version": "3.0.0"
+    },
+    "pact-laminat-android": {
+      "version": "3.5.10"
+    }
+  }
+}
