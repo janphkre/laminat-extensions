@@ -17,6 +17,11 @@ import org.junit.Assert
 import org.junit.Test
 import java.io.File
 
+/**
+ * This test class is verifying all extension to the default dsl.
+ *
+ * @author Jan Phillip Kretzschmar
+ */
 class ExternalDslTest {
 
     object TestRequests {
@@ -77,6 +82,8 @@ class ExternalDslTest {
                 .body(TestResponses.initialResponse)
         }
 
+        // Still used in externalPact_collectAllJson_AllItemsReturned
+        @Suppress("unused")
         val errorPact by duplicate(
             ProviderState("ERROR"),
             { initialPact }) {
@@ -98,8 +105,8 @@ class ExternalDslTest {
         val outputPactFile = File("pacts/$expectedPact")
         Assert.assertTrue("Pact was not generated!", outputPactFile.exists())
 
-        val outputPact = readFile(outputPactFile)
-        val expectedPact = readFile(File("src/test/assets/$expectedPact"))
+        val outputPact = outputPactFile.readText()
+        val expectedPact = File("src/test/assets/$expectedPact").readText()
         Assert.assertEquals("Generated pact does not match expectations!", expectedPact, outputPact)
     }
 

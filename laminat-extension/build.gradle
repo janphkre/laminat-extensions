@@ -27,7 +27,8 @@ repositories {
 }
 
 dependencies {
-//    implementation project(':laminat')
-    api "com.github.janphkre:laminat:${rootProject.ext.pact_version}"
+    api "com.github.janphkre:laminat:$pact_version"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testImplementation "junit:junit:$test_junit_version"
+
 }
